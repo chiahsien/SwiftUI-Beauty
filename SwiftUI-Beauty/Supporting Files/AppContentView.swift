@@ -8,10 +8,18 @@
 import SwiftUI
 
 struct AppContentView: View {
+    let forums: [Fetcher] = [
+        TimLiaoFetcher(),
+        JKForum(forum: .western),
+        JKForum(forum: .asian),
+        JKForum(forum: .amateur),
+        JKForum(forum: .jkfGirl)
+    ]
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ForumsView(forums: forums)
     }
+
 }
 
 struct AppContentView_Previews: PreviewProvider {

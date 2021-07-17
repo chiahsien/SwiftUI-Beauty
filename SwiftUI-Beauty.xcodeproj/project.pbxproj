@@ -15,6 +15,7 @@
 		52157CF626A2B26400A3F908 /* JKForumFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52157CF226A2B26400A3F908 /* JKForumFetcher.swift */; };
 		52157CF726A2B26400A3F908 /* TimLiaoFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52157CF326A2B26400A3F908 /* TimLiaoFetcher.swift */; };
 		52157CF826A2B26400A3F908 /* FetcherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52157CF426A2B26400A3F908 /* FetcherProtocol.swift */; };
+		52157CFB26A2B3A600A3F908 /* ForumsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52157CFA26A2B3A600A3F908 /* ForumsView.swift */; };
 		ED80FCAB60A19CB4DBDEA1A8 /* Pods_SwiftUI_Beauty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC62BCF38C61FAA53B649B9D /* Pods_SwiftUI_Beauty.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		52157CF226A2B26400A3F908 /* JKForumFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKForumFetcher.swift; sourceTree = "<group>"; };
 		52157CF326A2B26400A3F908 /* TimLiaoFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimLiaoFetcher.swift; sourceTree = "<group>"; };
 		52157CF426A2B26400A3F908 /* FetcherProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetcherProtocol.swift; sourceTree = "<group>"; };
+		52157CFA26A2B3A600A3F908 /* ForumsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumsView.swift; sourceTree = "<group>"; };
 		FC62BCF38C61FAA53B649B9D /* Pods_SwiftUI_Beauty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftUI_Beauty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -69,6 +71,7 @@
 			children = (
 				52157CF026A2B26400A3F908 /* Source Fetcher */,
 				5209791D26A2B0D500B6F181 /* Supporting Files */,
+				52157CF926A2B2B000A3F908 /* View Pages */,
 				5209791726A2B06B00B6F181 /* Info.plist */,
 			);
 			path = "SwiftUI-Beauty";
@@ -102,6 +105,14 @@
 				52157CF326A2B26400A3F908 /* TimLiaoFetcher.swift */,
 			);
 			path = "Source Fetcher";
+			sourceTree = "<group>";
+		};
+		52157CF926A2B2B000A3F908 /* View Pages */ = {
+			isa = PBXGroup;
+			children = (
+				52157CFA26A2B3A600A3F908 /* ForumsView.swift */,
+			);
+			path = "View Pages";
 			sourceTree = "<group>";
 		};
 		8C8ACDC0DF72215C6A4F7C8E /* Frameworks */ = {
@@ -238,6 +249,7 @@
 				5209791126A2B06A00B6F181 /* AppContentView.swift in Sources */,
 				52157CF526A2B26400A3F908 /* DataModel.swift in Sources */,
 				52157CF826A2B26400A3F908 /* FetcherProtocol.swift in Sources */,
+				52157CFB26A2B3A600A3F908 /* ForumsView.swift in Sources */,
 				52157CF626A2B26400A3F908 /* JKForumFetcher.swift in Sources */,
 				52157CF726A2B26400A3F908 /* TimLiaoFetcher.swift in Sources */,
 			);
