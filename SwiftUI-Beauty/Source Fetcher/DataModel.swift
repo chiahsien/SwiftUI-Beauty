@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Post: Identifiable {
+struct Post: Identifiable, Equatable {
     var id: String { url.absoluteString }
 
     let title: String

@@ -12,9 +12,13 @@ struct ForumsView: View {
     var body: some View {
         NavigationView {
             List(forums, id: \.name, rowContent: { forum in
-                Text(forum.name)
-                    .font(.title)
-                    .frame(height: 50.0)
+                NavigationLink(
+                    destination: PostsView(viewModel: PostsViewModel(fetcher: forum)),
+                    label: {
+                        Text(forum.name)
+                            .font(.title)
+                            .frame(height: 50.0)
+                    })
             })
             .navigationTitle("Forum List")
         }
