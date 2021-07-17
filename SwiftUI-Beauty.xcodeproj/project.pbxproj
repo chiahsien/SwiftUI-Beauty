@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,10 @@
 		5209791126A2B06A00B6F181 /* AppContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5209791026A2B06A00B6F181 /* AppContentView.swift */; };
 		5209791326A2B06B00B6F181 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5209791226A2B06B00B6F181 /* Assets.xcassets */; };
 		5209791626A2B06B00B6F181 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5209791526A2B06B00B6F181 /* Preview Assets.xcassets */; };
+		52157CF526A2B26400A3F908 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52157CF126A2B26400A3F908 /* DataModel.swift */; };
+		52157CF626A2B26400A3F908 /* JKForumFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52157CF226A2B26400A3F908 /* JKForumFetcher.swift */; };
+		52157CF726A2B26400A3F908 /* TimLiaoFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52157CF326A2B26400A3F908 /* TimLiaoFetcher.swift */; };
+		52157CF826A2B26400A3F908 /* FetcherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52157CF426A2B26400A3F908 /* FetcherProtocol.swift */; };
 		ED80FCAB60A19CB4DBDEA1A8 /* Pods_SwiftUI_Beauty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC62BCF38C61FAA53B649B9D /* Pods_SwiftUI_Beauty.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +27,10 @@
 		5209791226A2B06B00B6F181 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5209791526A2B06B00B6F181 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5209791726A2B06B00B6F181 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52157CF126A2B26400A3F908 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		52157CF226A2B26400A3F908 /* JKForumFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKForumFetcher.swift; sourceTree = "<group>"; };
+		52157CF326A2B26400A3F908 /* TimLiaoFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimLiaoFetcher.swift; sourceTree = "<group>"; };
+		52157CF426A2B26400A3F908 /* FetcherProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetcherProtocol.swift; sourceTree = "<group>"; };
 		FC62BCF38C61FAA53B649B9D /* Pods_SwiftUI_Beauty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftUI_Beauty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -59,6 +67,7 @@
 		5209790D26A2B06A00B6F181 /* SwiftUI-Beauty */ = {
 			isa = PBXGroup;
 			children = (
+				52157CF026A2B26400A3F908 /* Source Fetcher */,
 				5209791D26A2B0D500B6F181 /* Supporting Files */,
 				5209791726A2B06B00B6F181 /* Info.plist */,
 			);
@@ -84,6 +93,17 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		52157CF026A2B26400A3F908 /* Source Fetcher */ = {
+			isa = PBXGroup;
+			children = (
+				52157CF126A2B26400A3F908 /* DataModel.swift */,
+				52157CF426A2B26400A3F908 /* FetcherProtocol.swift */,
+				52157CF226A2B26400A3F908 /* JKForumFetcher.swift */,
+				52157CF326A2B26400A3F908 /* TimLiaoFetcher.swift */,
+			);
+			path = "Source Fetcher";
+			sourceTree = "<group>";
+		};
 		8C8ACDC0DF72215C6A4F7C8E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,7 +118,6 @@
 				036B3F2EA66B6CD80CE2E781 /* Pods-SwiftUI-Beauty.debug.xcconfig */,
 				44714F5C3201DEF716F81264 /* Pods-SwiftUI-Beauty.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -217,6 +236,10 @@
 			files = (
 				5209790F26A2B06A00B6F181 /* App.swift in Sources */,
 				5209791126A2B06A00B6F181 /* AppContentView.swift in Sources */,
+				52157CF526A2B26400A3F908 /* DataModel.swift in Sources */,
+				52157CF826A2B26400A3F908 /* FetcherProtocol.swift in Sources */,
+				52157CF626A2B26400A3F908 /* JKForumFetcher.swift in Sources */,
+				52157CF726A2B26400A3F908 /* TimLiaoFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
