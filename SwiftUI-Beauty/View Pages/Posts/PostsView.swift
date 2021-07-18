@@ -10,12 +10,10 @@ import Kingfisher
 
 struct PostsView: View {
     @StateObject var viewModel: PostsViewModel
-
-    private let gridItems = [GridItem(.flexible())]
-
+    
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: gridItems) {
+            LazyVStack {
                 ForEach(viewModel.posts) { post in
                     NavigationLink(destination: PhotosView(viewModel: PhotosViewModel(fetcher: viewModel.fetcher, post: post))) {
                         PostView(post: post)
@@ -28,7 +26,7 @@ struct PostsView: View {
                     }
                 }
             }
-
+            
             ActivityIndicatorView()
                 .opacity(viewModel.isFetchingPosts ? 1 : 0)
         }
@@ -50,7 +48,7 @@ struct PostsView_Previews: PreviewProvider {
 
 struct PostView: View {
     let post: Post
-
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text(post.title)
