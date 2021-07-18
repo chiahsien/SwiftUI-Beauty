@@ -13,9 +13,9 @@ final class PostsViewModel: ObservableObject {
     @Published var error: CustomError? = nil
     @Published var isFetchingPosts: Bool = false
     let forumName: String
+    let fetcher: Fetcher
 
     private var cancellables = Set<AnyCancellable>()
-    private let fetcher: Fetcher
     private var page: UInt = 0
 
     init(fetcher: Fetcher) {

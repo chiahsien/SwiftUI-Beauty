@@ -22,6 +22,7 @@ struct ForumsView: View {
             })
             .navigationTitle("Forum List")
         }
+        .navigationViewStyle(StackNavigationViewStyle())    // https://stackoverflow.com/a/67289627
     }
 }
 

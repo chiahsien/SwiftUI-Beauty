@@ -17,19 +17,22 @@ struct PostsView: View {
         ScrollView {
             LazyVGrid(columns: gridItems) {
                 ForEach(viewModel.posts) { post in
-                    PostView(post: post)
-                        .padding(.horizontal, 15)
-                        .onAppear(perform: {
-                            if viewModel.posts.last == post {
-                                viewModel.fetchMorePosts()
+                    NavigationLink(destination: PhotosView(viewModel: PhotosViewModel(fetcher: viewModel.fetcher, post: post))) {
+                        PostView(post: post)
+                            .padding(.horizontal, 15)
+                            .onAppear {
+                                if viewModel.posts.last == post {
+                                    viewModel.fetchMorePosts()
+                                }
                             }
-                        })
+                    }
                 }
             }
 
             ActivityIndicatorView()
                 .opacity(viewModel.isFetchingPosts ? 1 : 0)
         }
+        .foregroundColor(.black)
         .onAppear(perform: viewModel.fetchMorePosts)
         .navigationTitle(viewModel.forumName)
         .navigationBarTitleDisplayMode(.inline)
