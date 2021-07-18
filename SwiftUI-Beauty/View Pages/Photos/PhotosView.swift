@@ -19,6 +19,7 @@ struct PhotosView: View {
                 ForEach(viewModel.urls, id: \.absoluteString) { url in
                     KFImage(url)
                         .cancelOnDisappear(true)
+                        .downsampling(size: CGSize(width: 150, height: 150))
                         .scaleFactor(UIScreen.main.scale)
                         .cacheOriginalImage()
                         .resizable()

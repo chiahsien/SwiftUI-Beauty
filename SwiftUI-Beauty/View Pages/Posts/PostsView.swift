@@ -32,7 +32,7 @@ struct PostsView: View {
             ActivityIndicatorView()
                 .opacity(viewModel.isFetchingPosts ? 1 : 0)
         }
-        .foregroundColor(.black)
+        .foregroundColor(.primary)
         .onAppear(perform: viewModel.fetchMorePosts)
         .navigationTitle(viewModel.forumName)
         .navigationBarTitleDisplayMode(.inline)
@@ -58,6 +58,7 @@ struct PostView: View {
                 .padding()
             KFImage(post.coverURL)
                 .cancelOnDisappear(true)
+                .downsampling(size: CGSize(width: 300, height: 300))
                 .scaleFactor(UIScreen.main.scale)
                 .cacheOriginalImage()
                 .resizable()
