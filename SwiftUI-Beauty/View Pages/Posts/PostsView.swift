@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct PostsView: View {
-    @StateObject var viewModel: PostsViewModel
+    @ObservedObject var viewModel: PostsViewModel
     
     var body: some View {
         ScrollView {

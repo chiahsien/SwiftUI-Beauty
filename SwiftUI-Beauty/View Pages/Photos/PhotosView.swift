@@ -9,12 +9,12 @@ import SwiftUI
 import Kingfisher
 
 struct PhotosView: View {
-    @StateObject var viewModel: PhotosViewModel
+    @ObservedObject var viewModel: PhotosViewModel
     @State private var isPresented = false
     @State private var selectedIndex = 0
-    
+
     private let gridItems = [GridItem(.flexible()), GridItem(.flexible())]
-    
+
     var body: some View {
         ScrollView {
             LazyVGrid(columns: gridItems, spacing: 15) {

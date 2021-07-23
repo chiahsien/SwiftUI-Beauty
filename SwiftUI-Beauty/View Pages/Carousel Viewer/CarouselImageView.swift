@@ -14,27 +14,27 @@ struct CarouselImageView: View {
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
-        GeometryReader { proxy in
-            ZStack {
+        ZStack {
+            GeometryReader { proxy in
                 LazyHStack {
                     PageView(urls: urls, size: proxy.size)
                         .frame(width: proxy.size.width, height: proxy.size.height)
                 }
+            }
 
-                HStack(spacing: 0) {
+            HStack(spacing: 0) {
+                Spacer()
+                VStack {
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Image(systemName: "xmark.circle")
+                            .resizable()
+                            .foregroundColor(.gray.opacity(0.5))
+                            .frame(width: 30, height: 30)
+                            .padding(10)
+                    })
                     Spacer()
-                    VStack {
-                        Button(action: {
-                            presentationMode.wrappedValue.dismiss()
-                        }, label: {
-                            Image(systemName: "xmark.circle")
-                                .resizable()
-                                .foregroundColor(.gray.opacity(0.5))
-                                .frame(width: 30, height: 30)
-                                .padding(10)
-                        })
-                        Spacer()
-                    }
                 }
             }
         }
@@ -65,7 +65,7 @@ struct PageView: View {
 
     @Environment(\.selectedIndex) var selectedIndex: Int
     @State private var currentIndex = 0
-
+    
     var body: some View {
         TabView(selection: $currentIndex) {
             ForEach(0..<urls.count, id: \.self) { index in
