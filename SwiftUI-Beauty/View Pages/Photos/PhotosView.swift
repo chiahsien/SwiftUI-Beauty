@@ -10,27 +10,39 @@ import Kingfisher
 
 struct PhotosView: View {
     @StateObject var viewModel: PhotosViewModel
-
+    @State private var isPresented = false
+    @State private var selectedIndex = 0
+    
     private let gridItems = [GridItem(.flexible()), GridItem(.flexible())]
-
+    
     var body: some View {
         ScrollView {
             LazyVGrid(columns: gridItems, spacing: 15) {
-                ForEach(viewModel.urls, id: \.absoluteString) { url in
-                    KFImage(url)
-                        .cancelOnDisappear(true)
-                        .downsampling(size: CGSize(width: 150, height: 150))
-                        .scaleFactor(UIScreen.main.scale)
-                        .cacheOriginalImage()
-                        .resizable()
-                        .backgroundDecode()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(minWidth: 0)
-                        .cornerRadius(10)
-                        .clipped()
+                ForEach(0..<viewModel.urls.count, id: \.self) { index in
+                    Button(action: {
+                        self.isPresented = true
+                        self.selectedIndex = index
+                    }, label: {
+                        KFImage(viewModel.urls[index])
+                            .cancelOnDisappear(true)
+                            .downsampling(size: CGSize(width: 150, height: 150))
+                            .scaleFactor(UIScreen.main.scale)
+                            .cacheOriginalImage()
+                            .resizable()
+                            .backgroundDecode()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(minWidth: 0)
+                            .cornerRadius(10)
+                            .clipped()
+                    })
                 }
             }
             .padding(15)
+            .fullScreenCover(isPresented: $isPresented) {
+                CarouselImageView(urls: viewModel.urls)
+                    .background(Color.black.ignoresSafeArea())
+                    .environment(\.selectedIndex, selectedIndex)
+            }
         }
         .onAppear(perform: viewModel.fetchPhotos)
         .navigationTitle(viewModel.postTitle)
