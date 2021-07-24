@@ -12,6 +12,9 @@ final class PhotosViewModel: ObservableObject {
     @Published var urls: [URL] = []
     @Published var error: CustomError? = nil
     @Published var isFetchingPhotos: Bool = false
+    
+    @Published var isPresented = false
+    @Published var selectedIndex = 0
 
     var postTitle: String {
         post.title

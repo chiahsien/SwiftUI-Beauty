@@ -10,8 +10,6 @@ import Kingfisher
 
 struct PhotosView: View {
     @ObservedObject var viewModel: PhotosViewModel
-    @State private var isPresented = false
-    @State private var selectedIndex = 0
 
     private let gridItems = [GridItem(.flexible()), GridItem(.flexible())]
 
@@ -20,8 +18,8 @@ struct PhotosView: View {
             LazyVGrid(columns: gridItems, spacing: 15) {
                 ForEach(0..<viewModel.urls.count, id: \.self) { index in
                     Button(action: {
-                        self.isPresented = true
-                        self.selectedIndex = index
+                        viewModel.selectedIndex = index
+                        viewModel.isPresented.toggle()
                     }, label: {
                         KFImage(viewModel.urls[index])
                             .cancelOnDisappear(true)
@@ -38,10 +36,10 @@ struct PhotosView: View {
                 }
             }
             .padding(15)
-            .fullScreenCover(isPresented: $isPresented) {
+            .fullScreenCover(isPresented: $viewModel.isPresented) {
                 CarouselImageView(urls: viewModel.urls)
                     .background(Color.black.ignoresSafeArea())
-                    .environment(\.selectedIndex, selectedIndex)
+                    .environment(\.selectedIndex, viewModel.selectedIndex)
             }
         }
         .onAppear(perform: viewModel.fetchPhotos)
