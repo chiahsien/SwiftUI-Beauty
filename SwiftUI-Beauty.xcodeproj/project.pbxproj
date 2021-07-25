@@ -21,7 +21,6 @@
 		52157D0426A3447000A3F908 /* PhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52157D0326A3447000A3F908 /* PhotosView.swift */; };
 		52157D0626A3453700A3F908 /* PhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52157D0526A3453700A3F908 /* PhotosViewModel.swift */; };
 		52157D0926A4811100A3F908 /* CarouselImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52157D0826A4811100A3F908 /* CarouselImageView.swift */; };
-		523CE73826AB0D13002C2614 /* CustomEnvironmentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523CE73726AB0D13002C2614 /* CustomEnvironmentKeys.swift */; };
 		ED80FCAB60A19CB4DBDEA1A8 /* Pods_SwiftUI_Beauty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC62BCF38C61FAA53B649B9D /* Pods_SwiftUI_Beauty.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +43,6 @@
 		52157D0326A3447000A3F908 /* PhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosView.swift; sourceTree = "<group>"; };
 		52157D0526A3453700A3F908 /* PhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewModel.swift; sourceTree = "<group>"; };
 		52157D0826A4811100A3F908 /* CarouselImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselImageView.swift; sourceTree = "<group>"; };
-		523CE73726AB0D13002C2614 /* CustomEnvironmentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEnvironmentKeys.swift; sourceTree = "<group>"; };
 		FC62BCF38C61FAA53B649B9D /* Pods_SwiftUI_Beauty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftUI_Beauty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -168,7 +166,6 @@
 		523CE73626AB0CF0002C2614 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				523CE73726AB0D13002C2614 /* CustomEnvironmentKeys.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -306,7 +303,6 @@
 				5209790F26A2B06A00B6F181 /* App.swift in Sources */,
 				5209791126A2B06A00B6F181 /* AppContentView.swift in Sources */,
 				52157D0926A4811100A3F908 /* CarouselImageView.swift in Sources */,
-				523CE73826AB0D13002C2614 /* CustomEnvironmentKeys.swift in Sources */,
 				52157CF526A2B26400A3F908 /* DataModel.swift in Sources */,
 				52157CF826A2B26400A3F908 /* FetcherProtocol.swift in Sources */,
 				52157CFB26A2B3A600A3F908 /* ForumsView.swift in Sources */,
