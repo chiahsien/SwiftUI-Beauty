@@ -39,9 +39,8 @@ struct PhotosView: View {
             }
             .padding(15)
             .fullScreenCover(isPresented: $isPresented) {
-                CarouselImageView(urls: viewModel.urls)
+                CarouselImageView(urls: viewModel.urls, selectedIndex: $selectedIndex)
                     .background(Color.black.ignoresSafeArea())
-                    .environment(\.selectedIndex, selectedIndex)
             }
         }
         .onAppear(perform: viewModel.fetchPhotos)
