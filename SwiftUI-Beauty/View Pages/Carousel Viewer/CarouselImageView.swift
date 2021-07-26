@@ -10,6 +10,7 @@ import Kingfisher
 
 struct CarouselImageView: View {
     let urls: [URL]
+    let currentIndex: Int
 
     @Environment(\.presentationMode) var presentationMode
 
@@ -17,7 +18,7 @@ struct CarouselImageView: View {
         ZStack {
             GeometryReader { proxy in
                 LazyHStack {
-                    PageView(urls: urls, size: proxy.size)
+                    PageView(urls: urls, size: proxy.size, currentIndex: currentIndex)
                         .frame(width: proxy.size.width, height: proxy.size.height)
                 }
             }
@@ -53,9 +54,8 @@ struct CarouselImageView_Previews: PreviewProvider {
             URL(string: "https://www.sharefie.net/uploads/2020/05/70/70_1_5ec251044abb7.jpg")!,
             URL(string: "https://www.sharefie.net/uploads/2020/05/79/79_1_5ec25105a2736.jpg")!,
         ]
-        CarouselImageView(urls: urls)
+        CarouselImageView(urls: urls, currentIndex: 2)
             .background(Color.black.ignoresSafeArea())
-            .environment(\.selectedIndex, 2)
     }
 }
 
@@ -63,9 +63,14 @@ struct PageView: View {
     let urls: [URL]
     let size: CGSize
 
-    @Environment(\.selectedIndex) var selectedIndex: Int
     @State private var currentIndex = 0
-    
+
+    init(urls: [URL], size: CGSize, currentIndex: Int) {
+        self.urls = urls
+        self.size = size
+        _currentIndex = State(initialValue: currentIndex)
+    }
+
     var body: some View {
         TabView(selection: $currentIndex) {
             ForEach(0..<urls.count, id: \.self) { index in
@@ -82,8 +87,5 @@ struct PageView: View {
             }
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
-        .onAppear(perform: {
-            self.currentIndex = selectedIndex
-        })
     }
 }
