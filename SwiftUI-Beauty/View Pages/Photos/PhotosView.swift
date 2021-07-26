@@ -8,9 +8,14 @@
 import SwiftUI
 import Kingfisher
 
+private struct PresentationIndex: Identifiable {
+    let id = UUID()
+    let index: Int
+}
+
 struct PhotosView: View {
     @ObservedObject var viewModel: PhotosViewModel
-    @State private var currentIndex = 0
+    @State private var presentationIndex: PresentationIndex?
 
     private let gridItems = [GridItem(.flexible()), GridItem(.flexible())]
 
@@ -19,8 +24,7 @@ struct PhotosView: View {
             LazyVGrid(columns: gridItems, spacing: 15) {
                 ForEach(0..<viewModel.urls.count, id: \.self) { index in
                     Button(action: {
-                        currentIndex = index
-                        viewModel.isPresented.toggle()
+                        self.presentationIndex = PresentationIndex(index: index)
                     }, label: {
                         KFImage(viewModel.urls[index])
                             .cancelOnDisappear(true)
@@ -37,8 +41,8 @@ struct PhotosView: View {
                 }
             }
             .padding(15)
-            .fullScreenCover(isPresented: $viewModel.isPresented) {
-                CarouselImageView(urls: viewModel.urls, currentIndex: currentIndex)
+            .fullScreenCover(item: $presentationIndex) { presentationIndex in
+                CarouselImageView(urls: viewModel.urls, initialIndex: presentationIndex.index)
                     .background(Color.black.ignoresSafeArea())
             }
         }

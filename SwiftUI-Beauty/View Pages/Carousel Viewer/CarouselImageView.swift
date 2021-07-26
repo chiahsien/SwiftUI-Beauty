@@ -10,7 +10,7 @@ import Kingfisher
 
 struct CarouselImageView: View {
     let urls: [URL]
-    let currentIndex: Int
+    var initialIndex: Int
 
     @Environment(\.presentationMode) var presentationMode
 
@@ -18,7 +18,7 @@ struct CarouselImageView: View {
         ZStack {
             GeometryReader { proxy in
                 LazyHStack {
-                    PageView(urls: urls, size: proxy.size, currentIndex: currentIndex)
+                    PageView(urls: urls, size: proxy.size, currentIndex: initialIndex)
                         .frame(width: proxy.size.width, height: proxy.size.height)
                 }
             }
@@ -31,7 +31,7 @@ struct CarouselImageView: View {
                     }, label: {
                         Image(systemName: "xmark.circle")
                             .resizable()
-                            .foregroundColor(.gray.opacity(0.5))
+                            .foregroundColor(.white)
                             .frame(width: 30, height: 30)
                             .padding(10)
                     })
@@ -54,22 +54,15 @@ struct CarouselImageView_Previews: PreviewProvider {
             URL(string: "https://www.sharefie.net/uploads/2020/05/70/70_1_5ec251044abb7.jpg")!,
             URL(string: "https://www.sharefie.net/uploads/2020/05/79/79_1_5ec25105a2736.jpg")!,
         ]
-        CarouselImageView(urls: urls, currentIndex: 2)
+        CarouselImageView(urls: urls, initialIndex: 2)
             .background(Color.black.ignoresSafeArea())
     }
 }
 
-struct PageView: View {
+private struct PageView: View {
     let urls: [URL]
     let size: CGSize
-
-    @State private var currentIndex = 0
-
-    init(urls: [URL], size: CGSize, currentIndex: Int) {
-        self.urls = urls
-        self.size = size
-        _currentIndex = State(initialValue: currentIndex)
-    }
+    @State var currentIndex: Int
 
     var body: some View {
         TabView(selection: $currentIndex) {
