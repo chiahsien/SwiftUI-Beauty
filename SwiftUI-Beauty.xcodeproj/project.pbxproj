@@ -81,7 +81,6 @@
 			children = (
 				52157CF026A2B26400A3F908 /* Source Fetcher */,
 				5209791D26A2B0D500B6F181 /* Supporting Files */,
-				523CE73626AB0CF0002C2614 /* Utils */,
 				52157CF926A2B2B000A3F908 /* View Pages */,
 				5209791726A2B06B00B6F181 /* Info.plist */,
 			);
@@ -161,13 +160,6 @@
 				52157D0826A4811100A3F908 /* CarouselImageView.swift */,
 			);
 			path = "Carousel Viewer";
-			sourceTree = "<group>";
-		};
-		523CE73626AB0CF0002C2614 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		8C8ACDC0DF72215C6A4F7C8E /* Frameworks */ = {

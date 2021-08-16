@@ -11,7 +11,7 @@ import Combine
 import SwiftSoup
 
 struct TimLiaoFetcher: Fetcher {
-    private static let cfEncoding = CFStringEncodings.big5
+    private static let cfEncoding = CFStringEncodings.dosChineseTrad
     private static let nsEncoding = CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(cfEncoding.rawValue))
     private static let encoding = String.Encoding(rawValue: nsEncoding)
 
@@ -33,7 +33,7 @@ struct TimLiaoFetcher: Fetcher {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
 
-        return fetchContent(for: request, encoding: .isoLatin1, using: photosParser)
+        return fetchContent(for: request, encoding: TimLiaoFetcher.encoding, using: photosParser)
     }
 
     // MARK: - Private Methods
