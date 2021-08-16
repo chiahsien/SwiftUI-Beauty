@@ -28,9 +28,9 @@ struct PhotosView: View {
                     }, label: {
                         KFImage(viewModel.urls[index])
                             .cancelOnDisappear(true)
-                            .downsampling(size: CGSize(width: 150, height: 150))
-                            .scaleFactor(UIScreen.main.scale)
                             .cacheOriginalImage()
+                            .scaleFactor(UIScreen.main.scale)
+                            .downsampling(size: CGSize(width: 150, height: 150))
                             .resizable()
                             .backgroundDecode()
                             .aspectRatio(contentMode: .fill)

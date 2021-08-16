@@ -15,7 +15,7 @@ struct CarouselImageView: View {
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
-        ZStack {
+        ZStack(alignment: .topTrailing) {
             GeometryReader { proxy in
                 LazyHStack {
                     PageView(urls: urls, size: proxy.size, currentIndex: initialIndex)
@@ -23,21 +23,15 @@ struct CarouselImageView: View {
                 }
             }
 
-            HStack(spacing: 0) {
-                Spacer()
-                VStack {
-                    Button(action: {
-                        presentationMode.wrappedValue.dismiss()
-                    }, label: {
-                        Image(systemName: "xmark.circle")
-                            .resizable()
-                            .foregroundColor(.white)
-                            .frame(width: 30, height: 30)
-                            .padding(10)
-                    })
-                    Spacer()
-                }
-            }
+            Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }, label: {
+                Image(systemName: "xmark.circle")
+                    .resizable()
+                    .foregroundColor(.white)
+                    .frame(width: 30, height: 30)
+                    .padding(10)
+            })
         }
     }
 }
@@ -69,9 +63,9 @@ private struct PageView: View {
             ForEach(0..<urls.count, id: \.self) { index in
                 KFImage(urls[index])
                     .cancelOnDisappear(true)
+                    .cacheOriginalImage()
                     .scaleFactor(UIScreen.main.scale)
                     .downsampling(size: CGSize(width: size.width - 20, height: size.height))
-                    .cacheOriginalImage()
                     .resizable()
                     .backgroundDecode()
                     .aspectRatio(contentMode: .fit)
